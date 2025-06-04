@@ -7,21 +7,25 @@ class Program
 1.Basic
 2.Pro
 3.Expert"); 
-
-        string input = Console.ReadLine();
+        string choice = Console.ReadLine();
         DocumentProgram docProgram;
 
-        if (input == "2")
+        if (choice == "1")
+        {
+            docProgram = new DocumentProgram();
+        }
+        else if (choice == "2")
         {
             docProgram = new ProDocumentProgram();
         }
-        else if (input == "3")
+        else if (choice == "3")
         {
             docProgram = new ExpertDocument();
         }
         else
         {
-            docProgram = new DocumentProgram();
+            Console.WriteLine("Wrong input!");
+            return;
         }
 
 
@@ -108,7 +112,7 @@ class Program
         {
             System.Console.WriteLine("Document Edited");
         }
-        public void SaveDocument()
+        public override void SaveDocument()
         {
             System.Console.WriteLine("Document saved in doc format,for pdf format buy Expert packet");
         }
@@ -124,7 +128,7 @@ class Program
         {
             System.Console.WriteLine("Document Edited");
         }
-        public void SaveDocument()
+        public override void SaveDocument()
         {
             System.Console.WriteLine("Document saved in pdf format");
         }
